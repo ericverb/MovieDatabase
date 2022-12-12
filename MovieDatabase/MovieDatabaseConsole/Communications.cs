@@ -23,7 +23,7 @@
         public static void ThankYouAndGoodbye()
         {
             Console.WriteLine($"Thank you for visiting Movie Database today.{Environment.NewLine}");
-            Console.WriteLine("Please come back another time.");
+            Console.WriteLine("Please come back another again!");
             Environment.Exit(0);
         }
     }
