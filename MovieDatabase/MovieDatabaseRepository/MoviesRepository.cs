@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using MovieDatabaseDTO;
-using System.Security.Cryptography.X509Certificates;
 
 namespace MovieDatabaseRepository
 {

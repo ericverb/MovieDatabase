@@ -1,11 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using MovieDatabaseDTO;
-using MovieDatabaseDomain;
-using MovieDatabaseConsole;
-
-
-namespace MovieDatabaseConsole
+﻿namespace MovieDatabaseConsole
 {
     public static class Communications
     {
@@ -24,7 +17,7 @@ namespace MovieDatabaseConsole
         // Console.ReadLine 
         public static string ListenToUser()
         {
-            return Console.ReadLine().Trim();
+            return Console.ReadLine()!.Trim();
         }
 
         public static void ThankYouAndGoodbye()
@@ -33,7 +26,5 @@ namespace MovieDatabaseConsole
             Console.WriteLine("Please come back another time.");
             Environment.Exit(0);
         }
-
-
     }
 }
