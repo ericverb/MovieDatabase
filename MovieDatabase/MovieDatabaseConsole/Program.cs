@@ -15,7 +15,6 @@ while (keepSearchingMovies)
         string userSearch = Communications.ListenToUser();
         nav.MovieSearchRequest(userSearch);
         nav.SearchMoviesAgain(keepSearchingMovies);
-    
     }
     catch (Exception)
     {
@@ -25,7 +24,6 @@ while (keepSearchingMovies)
     }
 }
 
-
 void LoadMovieData()
 {
     List<Movie> initialItems = new List<Movie>
@@ -33,7 +31,7 @@ void LoadMovieData()
         new Movie() {Title = "Fight Me Now", Genre = "Action", Runtime = 193},
         new Movie() {Title = "Army of The UnLiving", Genre = "Comedy", Runtime = 184},
         new Movie() {Title = "7 Above Ground", Genre = "Thriller", Runtime = 177},
-        new Movie() {Title = "Slorbius", Genre = "Science Fiction", Runtime = 103},
+        new Movie() {Title = "Morbius", Genre = "Science Fiction", Runtime = 103},
         new Movie() {Title = "No Sleep On Elm Street", Genre = "Horror", Runtime = 152}
     };
 
@@ -49,4 +47,3 @@ void LoadMovieData()
         }
     }
 }
-

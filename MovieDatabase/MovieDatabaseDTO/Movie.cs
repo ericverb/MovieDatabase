@@ -11,5 +11,11 @@ namespace MovieDatabaseDTO
         public string Genre { get; set; }
 
         public double Runtime { get; set; }
+
+
+        public Movie()
+        {
+        
+        }
     }
 }

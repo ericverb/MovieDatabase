@@ -1,11 +1,12 @@
 ﻿using MovieDatabaseDomain;
 using MovieDatabaseDTO;
+using Figgle;
 
 namespace MovieDatabaseConsole
 {
     public class Navigation
     {
-        MovieInteractor movieInteractor = new MovieInteractor();
+        readonly MovieInteractor movieInteractor = new MovieInteractor();
 
         public void DisplayAllItems()
         {
@@ -13,8 +14,10 @@ namespace MovieDatabaseConsole
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             foreach (Movie movie in movieInteractor.GetAllItems())
             {
-                Communications.TalkToUser($"Title: {movie.Title} - Genre: {movie.Genre} -  Runtime of {movie.Runtime} minutes!");
+                Communications.TalkToUser(
+                    $"Title: {movie.Title} - Genre: {movie.Genre} -  Runtime of {movie.Runtime} minutes!");
             }
+
             Console.ResetColor();
         }
 
@@ -28,7 +31,8 @@ namespace MovieDatabaseConsole
 
             foreach (Movie movie in movies)
             {
-                Communications.TalkToUser($"Title: {movie.Title} - Genre: {movie.Genre} - Runtime of {movie.Runtime} minutes!");
+                Communications.TalkToUser(
+                    $"Title: {movie.Title} - Genre: {movie.Genre} - Runtime of {movie.Runtime} minutes!");
             }
         }
 
@@ -47,6 +51,7 @@ namespace MovieDatabaseConsole
                         DisplayAllItemsReturnedByTitleOrGenre(moviesByGenre);
                         break;
                     }
+
                     Communications.TalkToUser(
                         $"Your entry was invalid and Movie Database will now close!{Environment.NewLine}");
                     Communications.ThankYouAndGoodbye();
@@ -62,6 +67,7 @@ namespace MovieDatabaseConsole
                         DisplayAllItemsReturnedByTitleOrGenre(moviesByTitle);
                         break;
                     }
+
                     Communications.TalkToUser(
                         $"Your entry was invalid and Movie Database will now close!{Environment.NewLine}");
                     Communications.ThankYouAndGoodbye();
@@ -85,8 +91,10 @@ namespace MovieDatabaseConsole
 
         public void DisplayMenu()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Communications.TalkToUser($"Welcome to The Movie Database!{Environment.NewLine}");
+            Console.SetWindowSize(160, 50);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Communications.TalkToUser(FiggleFonts.Avatar.Render("Welcome to MovieDatabase!"));
             Communications.TalkToUser($"{"A",-1} - See list of Movies");
             Communications.TalkToUser($"{"G",-1} - Search movies by Genre");
             Communications.TalkToUser($"{"T",-1} - Search movies by Title");
@@ -106,9 +114,6 @@ namespace MovieDatabaseConsole
             {
                 Communications.ThankYouAndGoodbye();
             }
-        } 
-
-
-
+        }
     }
 }
