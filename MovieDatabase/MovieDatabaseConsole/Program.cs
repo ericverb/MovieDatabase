@@ -4,23 +4,22 @@ using MovieDatabaseConsole;
 
 
 MovieInteractor movieInteractor = new MovieInteractor();
-Navigation nav = new Navigation();
+MovieNavigation movieNav = new MovieNavigation();
 bool keepSearchingMovies = true;
 
 while (keepSearchingMovies)
 {
     try
     {
-        nav.DisplayMenu();
-        string userSearch = Communications.ListenToUser();
-        nav.MovieSearchRequest(userSearch);
-        nav.SearchMoviesAgain(keepSearchingMovies);
+        movieNav.DisplayMenu();
+        string userSearch = MovieCommunications.ListenToUser();
+        movieNav.MovieSearchRequest(userSearch);
+        movieNav.SearchMoviesAgain(keepSearchingMovies);
     }
     catch (Exception)
     {
         keepSearchingMovies = false;
-        Communications.TalkToUser($"An Error occurred, Movie Database must close!{Environment.NewLine}");
-        Communications.ThankYouAndGoodbye();
+        MovieCommunications.ThankYouAndGoodbyeError();
     }
 }
 
